@@ -15,24 +15,31 @@ class SizeSelector extends StatelessWidget {
     final sizes = ['S', 'M', 'L'];
 
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: sizes.map((size) {
         final isSelected = size == selectedSize;
-        return GestureDetector(
-          onTap: () => onSizeSelected(size),
-          child: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 8),
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-            decoration: BoxDecoration(
-              color: isSelected ? Color(0xFFA1724B) : Colors.white,
-              border: Border.all(color: Colors.grey),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Text(
-              size,
-              style: TextStyle(
-                color: isSelected ? Colors.white : Colors.black,
-                fontWeight: FontWeight.bold,
+        return Expanded(
+          child: GestureDetector(
+            onTap: () => onSizeSelected(size),
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 6), // spacing between buttons
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              decoration: BoxDecoration(
+                color: Colors.white, // always white background
+                border: Border.all(
+                  color: isSelected ? Color(0xFFA1724B) : Colors.grey.shade300,
+                  width: 1.5,
+                ),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Text(
+                size,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: isSelected ? Color(0xFFA1724B) : Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
               ),
             ),
           ),

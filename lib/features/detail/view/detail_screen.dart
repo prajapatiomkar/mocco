@@ -14,9 +14,7 @@ class _DetailScreenState extends State<DetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
-
         title: const Text('Detail'),
         backgroundColor: Colors.white,
         centerTitle: true,
@@ -34,7 +32,7 @@ class _DetailScreenState extends State<DetailScreen> {
               child: Image.asset(
                 'assets/images/coffee_1.png',
                 width: double.infinity,
-                height: 400,
+                height: 350,
                 fit: BoxFit.cover,
               ),
             ),
@@ -70,15 +68,29 @@ class _DetailScreenState extends State<DetailScreen> {
             ),
 
             const SizedBox(height: 20),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text("Description", style: TextStyle(fontSize: 20)),
+            ),
 
-            // Description
-            const Text(
-              'A cappuccino is an approximately 150 ml (5 oz) beverage, with 25 ml of espresso coffee and 85 ml of fresh milk... Read More',
-              style: TextStyle(color: Colors.grey),
+            Text.rich(
+              TextSpan(
+                text:
+                    'A cappuccino is an approximately 150 ml (5 oz) beverage, with 25 ml of espresso coffee and 85 ml of fresh milk...',
+                children: [
+                  TextSpan(
+                    text: "Read More",
+                    style: TextStyle(color: Color(0xFFC67C4E)),
+                  ),
+                ],
+              ),
             ),
 
             const SizedBox(height: 20),
-
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text("Size", style: TextStyle(fontSize: 20)),
+            ),
             // Size Selector
             SizeSelector(
               selectedSize: selectedSize,
@@ -95,33 +107,43 @@ class _DetailScreenState extends State<DetailScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  '\$4.53',
-                  style: Theme.of(
-                    context,
-                  ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/order'); // or use go_router
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFFA1724B),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 32,
-                      vertical: 14,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
+                Expanded(
+                  flex: 1,
+                  child: Text(
+                    '\$4.53',
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  child: const Text(
-                    'Buy Now',
-                    style: TextStyle(color: Colors.white),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        '/order',
+                      ); // or use go_router
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFFA1724B),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 32,
+                        vertical: 14,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    child: const Text(
+                      'Buy Now',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                 ),
               ],
             ),
+            const SizedBox(height: 20),
           ],
         ),
       ),

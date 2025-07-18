@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mocco/features/home/view/coffee_card.dart';
+import 'package:mocco/features/home/widget/coffee_card.dart';
 
 import '../widget/promo_banner.dart';
-import 'category_chips.dart';
+import '../widget/category_chips.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
