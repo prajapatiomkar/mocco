@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CoffeeCard extends StatelessWidget {
   const CoffeeCard({super.key});
@@ -7,7 +8,7 @@ class CoffeeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/detail'); // or use go_router
+        context.push("/detail");
       },
       child: Container(
         padding: const EdgeInsets.all(12),

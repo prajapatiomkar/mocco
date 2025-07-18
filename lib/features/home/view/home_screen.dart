@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mocco/features/home/view/coffee_card.dart';
 
 import '../widget/promo_banner.dart';
@@ -14,8 +15,8 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         type: BottomNavigationBarType.fixed,
         currentIndex: 0,
+        iconSize: 32,
         onTap: (index) {
-          // handle navigation
         },
         fixedColor: Color(0xFFC67C4E),
         items: const [
